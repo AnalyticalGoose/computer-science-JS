@@ -59,19 +59,69 @@ class LinkedList {
 
     removeAt(index) {
         if (index < 0 || index >= this.length) return null;
-        if (index === 0) return this.remove();
+        if (index === 0) {
+            const removedNode = this.head;
+            this.head = this.head.next;
+            this.length--;
+            return removedNode;
+        }
         let current = this.head;
         for (let i = 0; i < index - 1; i++) {
-           current = current.next;
+            current = current.next;
         }
+        const removedNode = current.next;
         current.next = current.next.next;
         this.length--;
-        return this;
-     }
+        return removedNode;
+    }
+    
+
+    at(index) {
+        let current = this.head;
+        let count = 0;
+
+        while (current != null) {
+            if (count == index)
+                return current.value;
+            count++
+            current = current.next
+        }
+        return 0;
+    }
+
+    contains(value) {
+        let current = this.head;
+
+        while (current != null) {
+            if (current.value == value) {
+                return true
+            }
+            current = current.next
+        }
+        return false
+    }
+
+    find(value) {
+        let current = this.head;
+        let index = 0;
+
+        while (current != null) {
+            if (current.value == value) {
+                return index
+            }
+            index++
+            current = current.next
+        }
+        return null
+    }
+
+    pop(size) {
+        this.removeAt(size - 1)
+    }
 
     size() {
         if (!this.head) return null
-        console.log(this.length);
+        return (this.length);
     }
 
     printHead() {
@@ -89,6 +139,18 @@ class LinkedList {
             current = current.next
         }
     }
+
+    toString() {
+        let current = this.head;
+        let string = "";
+    
+        while (current != null) {
+            string = string.concat(`( ${current.value} ) -> `);
+            current = current.next;
+        }
+        string = string.concat("null");
+        console.log(string);
+    }
 }
 
 
@@ -102,11 +164,8 @@ export function createList() {
     console.log("Initial List:");
     list.printAll();
 
-    list.size()
-    list.printTail()
+
+    list.toString()
+    // console.log("New list")
+    // list.printAll();
 }
-
-
-
-
-
