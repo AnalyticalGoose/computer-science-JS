@@ -26,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _linked_list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./linked-list */ \"./src/linked-list.js\");\n/* harmony import */ var _binary_search_tree__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./binary-search-tree */ \"./src/binary-search-tree.js\");\n\n\n\n// createList()\n(0,_binary_search_tree__WEBPACK_IMPORTED_MODULE_1__.bstDriver)()\n\n//# sourceURL=webpack://computer-science-js/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _linked_list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./linked-list */ \"./src/linked-list.js\");\n/* harmony import */ var _binary_search_tree__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./binary-search-tree */ \"./src/binary-search-tree.js\");\n/* harmony import */ var _knights_travails__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./knights-travails */ \"./src/knights-travails.js\");\n\n\n\n\n// createList()\n// bstDriver()\n(0,_knights_travails__WEBPACK_IMPORTED_MODULE_2__.knightMoves)([3,3],[4,3])\n\n//# sourceURL=webpack://computer-science-js/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/knights-travails.js":
+/*!*********************************!*\
+  !*** ./src/knights-travails.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   knightMoves: () => (/* binding */ knightMoves)\n/* harmony export */ });\nfunction knightMoves(start, finish) {\n    // console.log(start, finish)\n\n    const offset = [Math.abs(start[0]-finish[0]),Math.abs(start[1]-finish[1])]\n    const minMoves = minimumMoves[offset[0]][offset[1]]\n\n    console.log(availableMoves(start))\n}\n\n\nfunction availableMoves(node, result = []){\n    const validMoves = [[-2,-1], [-1,-2], [1,-2], [2,-1] ,[-2,1] ,[-1,2] ,[1,2] ,[2,1]]\n\n    for (let move of validMoves) {\n        let newArray = [node[0] + move[0], node[1] + move[1]];\n        if (newArray.every(coord => coord > 0 && coord <= 8)) {\n            result.push(newArray);\n        }\n    }\n    return result\n}\n\n\n\n\n\nconst minimumMoves = [\n    [0,3,2,3,2,3,4,5],\n    [3,4,1,2,3,4,3,4],\n    [2,1,4,3,2,3,4,5],\n    [3,2,3,2,3,4,3,4],\n    [2,3,2,3,4,3,4,5],\n    [3,4,3,4,3,4,5,4],\n    [4,3,4,3,4,5,4,5],\n    [5,4,5,4,5,4,5,6]\n    ]\n\n\n\nconst sixMoves = {\n    \"[1, 8]\": [[3, 7], [5, 6], [4, 4], [5, 2], [7, 3]], \n    \"[8, 8]\": [[6, 7], [4, 6], [5, 6], [4, 2], [2, 3]], \n    \"[8, 1]\": [[7, 3], [5, 2], [4, 4], [5, 6], [3, 7]], \n    \"[1, 1]\": [[2, 3], [4, 2], [5, 6], [4, 6], [6, 7]]\n}\n\n//# sourceURL=webpack://computer-science-js/./src/knights-travails.js?");
 
 /***/ }),
 
