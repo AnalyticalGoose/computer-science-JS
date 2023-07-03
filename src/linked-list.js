@@ -162,10 +162,5 @@ export function createList() {
     list.prepend("node3");
     list.prepend("node4");
     console.log("Initial List:");
-    list.printAll();
-
-
-    list.toString()
-    // console.log("New list")
-    // list.printAll();
+    list.toString();
 }
