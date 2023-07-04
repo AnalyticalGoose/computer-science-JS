@@ -4,4 +4,4 @@ import { knightMoves } from "./knights-travails";
 
 // createList()
 // bstDriver()
-knightMoves([3,3],[4,3])
+knightMoves([1,1],[8,8])
